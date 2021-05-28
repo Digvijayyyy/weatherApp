@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import ImagePreloader from './components/ImagePreloader';
+import Location from './components/Location';
+import NavBar from './components/NavBar';
+import ReportCard from './components/ReportCard';
+import SearchBar from './components/SearchBar';
+import SummaryCard from './components/SummaryCard';
+import { SearchContextProvider } from './context/SearchContext';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        
+      <div className="elements">
+        
+        <ImagePreloader />
+        <SearchContextProvider>
+          <NavBar />
+          <Location />
+          <SearchBar />
+          <ReportCard />
+          <SummaryCard />
+        </SearchContextProvider>
+      </div>
     </div>
   );
 }
